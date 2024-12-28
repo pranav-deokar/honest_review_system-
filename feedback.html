@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Honest Review System</title>
+
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <style>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5dc; /* Beige background */
+            color: #3a271d; /* Dark brown text */
+            margin: 0;
+            padding: 0;
+        }
+
+        
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-top: 20px;
+            color: #ffffff;
+            background-color: #8B4513; 
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+            color: #fff;
+            background-color: #8B4513; /* Brown background */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        
+        .card {
+            background-color: #fdf5e6; /* Light beige */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        
+        .comment-section {
+            margin-top: 20px;
+        }
+
+       
+        .btn-primary {
+            background-color: #8B4513; 
+            border-color: #8B4513;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: #7a3c10; 
+        }
+        
+.star-rating {
+    direction: rtl;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input[type="radio"]:checked ~ label {
+    color: #ffcc00; 
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SUBMIT FEEDBACK</h1>
+
+        
+        <div class="card mt-4">
+            <div class="card-header">
+                Submit Your Feedback
+            </div>
+            <div class="card-body">
+                <form method="POST" action="submit_feedback.php">
+
+                   
+<div class="form-group">
+    <label for="department" style="color: #8B4513; font-weight: bold;">Department:</label>
+    <select class="form-control" id="department" name="department" required onchange="updateTeachers(); updateSubjectOptions();">
+        <option value="" disabled selected>Select Department</option>
+        <option value="Computer Science">Computer Science</option>
+        <option value="Electrical Engineering">Electrical Engineering</option>
+        <option value="Mechanical Engineering">Mechanical Engineering</option>
+        <option value="Civil Engineering">Civil Engineering</option>
+        <option value="Chemical Engineering">Chemical Engineering</option>
+        <option value="Aerospace Engineering">Aerospace Engineering</option>
+        <option value="Biotechnology Engineering">Biotechnology Engineering</option>
+        <option value="Electronics & Communication">Electronics & Communication</option>
+        <option value="Information Technology">Information Technology</option>
+        <option value="Automobile Engineering">Automobile Engineering</option>
+    </select>
+</div>
+
+
+                    
+                    <div class="form-group">
+                        <label for="Teacher" style="color: #8B4513; font-weight: bold;">Teacher:</label>
+                        <select class="form-control" id="teacher" name="teacher_name" required>
+                            <option value="" disabled selected>Select Teacher</option>
+                            
+                        </select>
+                    </div>
+
+                   
+
+                    
+                    <div class="form-group">
+                        <label for="subject" style="color: #8B4513; font-weight: bold;">Subject:</label>
+                        <select class="form-control" id="subject" name="subject">
+                            <option value="" disabled selected>Select Subject</option>
+                        </select>
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="manualSubject" style="color: #8B4513; font-weight: bold;">Or Enter Subject Manually:</label>
+                        <input type="text" class="form-control" id="manualSubject" name="manual_subject" placeholder="Enter Subject">
+                    </div>
+                    
+<div class="form-group">
+    <label style="color: #8B4513; font-weight: bold;">Rating:</label>
+    <div class="star-rating">
+        <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars">★</label>
+        <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars">★</label>
+        <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars">★</label>
+        <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars">★</label>
+        <input type="radio" id="star1" name="rating" value="1" required /><label for="star1" title="1 star">★</label>
+    </div>
+</div>
+
+
+                    
+                    
+                        <div class="form-group">
+                            <label for="feedback" style="color: #8B4513; font-weight: bold;">Feedback:</label>
+                            <textarea class="form-control" id="feedback" name="feedback" placeholder="Write your feedback" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Feedback</button>
+ </form>
+                    
+                    
+
+        
+        
+
+        
+       
+
+       
+        <div class="comment-section">
+            <h3 class="text-center" style="color: #8B4513;">Leave a Comment</h3>
+            <form method="POST" action="/comment">
+                <div class="form-group">
+                    <textarea class="form-control" name="comment" placeholder="Add a comment"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Comment</button>
+            </form>
+        </div>
+    </div>
+
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    
+    <script>
+        const subjects = {
+            "Computer Science": ["Data Structures", "Operating Systems", "Computer Networks", "Database Management Systems", "Artificial Intelligence"],
+            "Electrical Engineering": ["Circuit Analysis", "Control Systems", "Power Systems", "Electrical Machines", "Signal Processing"],
+            "Mechanical Engineering": ["Thermodynamics", "Fluid Mechanics", "Machine Design", "Dynamics of Machinery", "Manufacturing Technology"],
+            "Civil Engineering": ["Structural Analysis", "Concrete Technology", "Geotechnical Engineering", "Hydraulics", "Transportation Engineering"],
+            "Chemical Engineering": ["Chemical Reaction Engineering", "Heat Transfer", "Mass Transfer", "Process Control", "Fluid Mechanics"],
+            "Aerospace Engineering": ["Aerodynamics", "Flight Mechanics", "Propulsion", "Aerospace Structures", "Space Technology"],
+            "Biotechnology Engineering": ["Genetic Engineering", "Bioprocess Technology", "Molecular Biology", "Bioinformatics", "Immunology"],
+            "Electronics & Communication": ["Digital Electronics", "Analog Circuits", "Signals and Systems", "Communication Systems", "Microprocessors"],
+            "Information Technology": ["Web Development", "Computer Security", "Software Engineering", "Cloud Computing", "Mobile Application Development"],
+            "Automobile Engineering": ["Automotive Design", "Vehicle Dynamics", "Internal Combustion Engines", "Vehicle Manufacturing", "Automotive Electronics"]
+        };
+
+        const teachers = {
+            "Computer Science": ["Dr. A B Pawar", "Dr. DBK"],
+            "Electrical Engineering": ["Dr. ABC", "Dr. DDD"],
+            "Mechanical Engineering": ["Dr. PETARE", "Dr. GUNJAL"],
+            "Civil Engineering": ["Dr. RR", "Dr. GUJJAR"],
+            
+        };
+
+        
+const departmentSelect = document.getElementById("department");
+
+
+departmentSelect.addEventListener("change", function() {
+   
+    updateTeachers();
+});
+
+function updateTeachers() {
+            const department = document.getElementById('department').value;
+            fetch(`/honest review system/getTeachers.php?department=${department}`)
+                .then(response => response.json())
+                .then(data => {
+                    const teacherSelect = document.getElementById('teacher');
+                    teacherSelect.innerHTML = '<option value="" disabled selected>Select Teacher</option>';
+                    data.forEach(teacher => {
+                        const option = document.createElement('option');
+                        option.value = teacher.teacher_id;
+                        option.textContent = teacher.name;
+                        teacherSelect.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Error fetching teachers:', error));
+        }
+function updateSubjectOptions() {
+            const department = document.getElementById("department").value;
+            const subjectSelect = document.getElementById("subject");
+            subjectSelect.innerHTML = "<option value='' disabled selected>Select Subject</option>";
+
+            if (subjects[department]) {
+                subjects[department].forEach(subject => {
+                    const option = document.createElement("option");
+                    option.value = subject;
+                    option.textContent = subject;
+                    subjectSelect.appendChild(option);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
