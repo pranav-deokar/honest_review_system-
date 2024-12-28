@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Activity | Honest Review System</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5dc;
+            color: #3a271d;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3a271d;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #a97c56;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center; 
+        }
+
+        nav ul li {
+            margin: 0 15px; 
+        }
+
+        nav ul li a {
+            color: #ffffff; 
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px; 
+            transition: background-color 0.3s; /
+        }
+
+        nav ul li a:hover {
+            background-color: #3a271d; 
+            color: #ffffff; 
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .filter {
+            margin-bottom: 20px;
+        }
+
+        .filter select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .activity-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .activity-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .activity-item h3 {
+            margin: 0 0 10px;
+            color: #3a271d; 
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #3a271d; 
+            color: #ffffff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column; 
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Recent Activity</h1>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="feedback.html">Submit Feedback</a></li>
+                <li><a href="recent_activity.html">Recent Activity</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Activity Feed</h2>
+
+        <div class="filter">
+            <label for="filter-category">Filter by Category:</label>
+            <select id="filter-category">
+                <option value="all">All Activities</option>
+                <option value="feedback">Feedback Submitted</option>
+                <option value="complaints">Complaints Registered</option>
+                <option value="comments">Comments Made</option>
+            </select>
+        </div>
+
+        <ul class="activity-list">
+           
+            <li class="activity-item">
+                <h3>John Doe submitted feedback</h3>
+                <p><em>Course:</em> Computer Engineering</p>
+                <p><em>Feedback:</em> Excellent teaching methods!</p>
+                <p><em>Date:</em> October 22, 2024</p>
+            </li>
+            <li class="activity-item">
+                <h3>Jane Smith registered a complaint</h3>
+                <p><em>Issue:</em> Class cancellation without notice</p>
+                <p><em>Date:</em> October 21, 2024</p>
+            </li>
+            <li class="activity-item">
+                <h3>Mike Johnson commented on feedback</h3>
+                <p><em>Comment:</em> I agree with this feedback!</p>
+                <p><em>Date:</em> October 20, 2024</p>
+            </li>
+            
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Honest Review System. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
